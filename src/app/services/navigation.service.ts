@@ -1,4 +1,10 @@
-import { User, Product, PaymentMethod } from './../models/models';
+import {
+  User,
+  Product,
+  PaymentMethod,
+  Payment,
+  Order,
+} from './../models/models';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpClientModule } from '@angular/common/http';
 import { map } from 'rxjs';
@@ -90,8 +96,18 @@ export class NavigationService {
     return this.http.get(url);
   }
 
-  getPaymentMethods(userid: number) {
+  getPaymentMethods() {
     let url = this.baseUrl + 'GetPaymentMethods';
     return this.http.get<PaymentMethod[]>(url);
+  }
+
+  insertPayment(payment: Payment) {
+    return this.http.post(this.baseUrl + 'InsertPayment', payment, {
+      responseType: 'text',
+    });
+  }
+
+  insertOrder(order: Order) {
+    return this.http.post(this.baseUrl + 'InsertOrder', order);
   }
 }
