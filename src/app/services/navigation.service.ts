@@ -87,7 +87,7 @@ export class NavigationService {
   }
 
   getActiveCartOfUser(userid: number) {
-    let url = this.baseUrl + 'GetActuiveCartOfUser/' + userid;
+    let url = this.baseUrl + 'GetActiveCartOfUser/' + userid;
     return this.http.get(url);
   }
 

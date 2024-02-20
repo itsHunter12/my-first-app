@@ -1,3 +1,4 @@
+import { CartItem } from './../models/models';
 import { NavigationService } from './../services/navigation.service';
 import { RegisterComponent } from './../register/register.component';
 import { LoginComponent } from './../login/login.component';
@@ -63,7 +64,8 @@ export class HeaderComponent implements OnInit {
       this.navigationService
         .getActiveCartOfUser(this.utilityService.getUser().id)
         .subscribe((res: any) => {
-          this.cartItems = res.cartitems.length;
+          // debugger;
+          this.cartItems = res.cartItems.length;
         });
     }
 

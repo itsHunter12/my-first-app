@@ -46,6 +46,7 @@ export class CartComponent implements OnInit {
       .getActiveCartOfUser(this.utilityService.getUser().id)
       .subscribe((res: any) => {
         this.usersCart = res;
+        this.utilityService.calculatePayment(res, this.usersPaymentInfo);
       });
 
     //Get Previous Carts
